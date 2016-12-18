@@ -1,2 +1,2 @@
-# GrumbleBundle
-Enables you to retrieve all the files in your book bundle at once.
+#GrumbleBundle Addon
+An add-on to download an entire ebook Humble Bundle in one click.

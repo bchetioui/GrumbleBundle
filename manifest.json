@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "GrBn",
+    "version": "1.0",
+
+    "description": "Permits users to download an entire ebook Humble Bundle in one click.",
+
+    "icons": {
+        "48": "icons/grbn-48.png"
+    },
+
+    "permissions": [
+        "activeTab",
+        "downloads",
+        "downloads.open"
+    ],
+
+    "browser_action": {
+        "browser_style": true,
+        "default_title": "GrBn",
+        "default_popup": "popup/choose_format.html",
+        "default_icon": "icons/grbn-32.png"
+    }
+}
