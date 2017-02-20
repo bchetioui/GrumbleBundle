@@ -2,7 +2,7 @@ function grbn(request, sender, sendResponse) {
     var toDownload = getDownloadableContent(request.format);
     try {
         sendResponse({
-            response: "osef",
+            response: "",
             files: toDownload
         });
     }
@@ -20,7 +20,6 @@ function getDownloadableContent(format) {
 
     var toDownload = [];
 
-    console.log("HAHA");
     var lower_format = format.toLowerCase();
 
     for (var i = 0; i < links.length; i++) {
@@ -40,7 +39,6 @@ function getDownloadableContent(format) {
         }
     }
 
-    console.log("okdok");
     return toDownload;
 }
 
