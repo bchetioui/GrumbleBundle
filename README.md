@@ -9,5 +9,12 @@ do).
 
 ## Install
 
-Firefox: go to `about:debugging`, click on `Load temporary add-on` and load the
-`manifest.json` file.
+### Firefox
+
+1. Go to `about:debugging`;
+2. click on `Load temporary add-on`;
+3. load the `manifest.json` file.
+
+### Other navigator
+
+I don't know but you can make a PR to tell me how to do it.
