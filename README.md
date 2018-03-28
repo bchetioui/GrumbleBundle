@@ -2,6 +2,13 @@
 
 An add-on to download an entire ebook Humble Bundle in a single click.
 
+## Usage
+
+1. Go to the page dedicated to your bundle (URL should be of the form `https://www.humblebundle.com/downloads?key=<somekey>`);
+2. click on the extension logo;
+3. pick your format;
+4. it's downloading!
+
 ## Environment
 
 Should work on any browser that supports WebExtensions (any recent one should
