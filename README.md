@@ -18,3 +18,12 @@ do).
 ### Other browser
 
 I don't know but you can make a PR to tell me how to do it.
+
+## Known bugs/peculiarities
+
+Here's a list of known bugs I won't fix myself for now because I don't have
+time for this:
+
+- Doesn't really make it clear that it started downloading.
+
+Waiting for your PR :-)
