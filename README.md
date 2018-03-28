@@ -15,6 +15,6 @@ do).
 2. click on `Load temporary add-on`;
 3. load the `manifest.json` file.
 
-### Other navigator
+### Other browser
 
 I don't know but you can make a PR to tell me how to do it.
