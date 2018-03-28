@@ -27,16 +27,16 @@ function getDownloadableContent(format) {
         var bookUrls = book.children[2].children[0];
         var url = "";
 
-        switch (lower_format) {
-            case "mobi":
-                url += bookUrls.children[0].children[0].children[0].children[2].href;
+        for (var j = 0; j < bookUrls.childElementCount; j++) {
+            var label = bookUrls.children[j].children[0].children[0].children[1].innerHTML;
+            if (label == format) {
+                url += bookUrls.children[j].children[0].children[0].children[2].href;
                 break;
-            case "epub":
-                url += bookUrls.children[1].children[0].children[0].children[2].href;
-                break;
-            case "pdf":
-                url += bookUrls.children[2].children[0].children[0].children[2].href;
-                break;
+            }
+        }
+
+        if (url == "") {
+            throw "Download links for " + format + " were not found";
         }
 
         toDownload.push({
