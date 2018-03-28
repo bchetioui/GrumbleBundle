@@ -25,25 +25,20 @@ function getDownloadableContent(format) {
         var book = links.children[i].children[0];
         var bookName = book.getAttribute("data-human-name").replace(/ /g, "_") + '.' + lower_format;
         var bookUrls = book.children[2].children[0];
-        var url = "";
 
-        for (var j = 0; j < bookUrls.childElementCount; j++) {
-            var label = bookUrls.children[j].children[0].children[0].children[1].innerHTML;
-            if (label == format) {
-                url += bookUrls.children[j].children[0].children[0].children[2].href;
-                break;
-            }
+        // Getting the span element containing the relevant format
+        var formatSpan = Array.from(bookUrls.querySelectorAll('span')).find(el => el.textContent === format);
+
+        if (formatSpan != undefined) {
+
+            toDownload.push({
+                filename: bookName,
+                url: formatSpan.parentElement.children[2].href
+            });
         }
-
-        if (url == "") {
-            throw "Download links for " + format + " were not found";
+        else {
+            console.log("Warning: " + book.getAttribute("data-human-name") + " can't be found in " + format + " format.");
         }
-
-        toDownload.push({
-            filename: bookName,
-            url: url
-        });
-        
     }
 
     return toDownload;
