@@ -14,29 +14,36 @@ function grbn(request, sender, sendResponse) {
 
 
 function getDownloadableContent(format) {
-    var links = $('#papers-content').find('.js-all-downloads-holder:first')
-                                    .find('.js-platform.downloads.ebook.show')
-                                    .find('a.a');
+    var links = document.getElementsByClassName("js-all-downloads-holder")[0].firstChild.firstChild.firstChild;
 
     var toDownload = [];
 
     var lower_format = format.toLowerCase();
 
-    for (var i = 0; i < links.length; i++) {
-        var text = links[i].textContent;
+    for (var i = 4; i < links.childElementCount; i++) {
 
-        text = text.replace(/[\n\s]/g, "");
+        var book = links.children[i].children[0];
+        var bookName = book.getAttribute("data-human-name").replace(/ /g, "_") + '.' + lower_format;
+        var bookUrls = book.children[2].children[0];
+        var url = "";
 
-        if (text == format || text == format + "(HQ)") {
-            toDownload.push({
-                filename: links[i].parentNode
-                                  .parentNode
-                                  .getAttribute("data-subproduct") +
-                                                "." +
-                                                lower_format,
-                url: links[i].getAttribute("data-web")
-            });
+        for (var j = 0; j < bookUrls.childElementCount; j++) {
+            var label = bookUrls.children[j].children[0].children[0].children[1].innerHTML;
+            if (label == format) {
+                url += bookUrls.children[j].children[0].children[0].children[2].href;
+                break;
+            }
         }
+
+        if (url == "") {
+            throw "Download links for " + format + " were not found";
+        }
+
+        toDownload.push({
+            filename: bookName,
+            url: url
+        });
+        
     }
 
     return toDownload;
