@@ -1,5 +1,8 @@
 # GrumbleBundle
 
+**Update 29/05/2019: this repository is now archived, as HumbleBundle
+implemented the bulk download feature on their end.**
+
 An add-on to download an entire ebook Humble Bundle in a single click.
 
 ## Usage
